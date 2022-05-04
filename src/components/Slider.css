@@ -25,13 +25,13 @@
 
 .content {
    position: absolute;
-   top: 15rem;
+   top: 23rem;
    left: 10rem;
    /* opacity: 0; */
    width: 30%;
    padding: 3rem;
    background: rgba(53, 52, 52, 0.4);
-   animation: slide-up 1s ease .5s;
+   animation: slide-up 1s ease 0.3s;
    animation-fill-mode: forwards;
    /* visibility: hidden; */
 
@@ -100,6 +100,10 @@
 
 hr{
   height: 2px;
-  background: #fff;
+  background: rgb(255, 0, 0);
   width: 100%;
+}
+
+h1{
+  font-size: 2.5rem;
 }

@@ -9,6 +9,12 @@ const Slider = () => {
   const slideLength = data.length
   // slideLength = 1 2 3
   // crrentSlide = 0 1 2
+
+  const autoScroll = true;
+  let slideInterval;
+  // intervalTime is 5 seconds
+  let intervalTime = 5000;
+
   const nextSlide =() =>{
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1)
   }
@@ -17,9 +23,20 @@ const Slider = () => {
     setCurrentSlide(currentSlide === 0 ? slideLength -1 : currentSlide - 1)
   }
 
+  function auto(){
+    slideInterval = setInterval(nextSlide, intervalTime)
+  }
+
   useEffect(() =>{
     setCurrentSlide(0)
   },[])
+
+  useEffect(() =>{
+    if(autoScroll){
+      auto()
+    }
+    return () => clearInterval(slideInterval)
+  },[currentSlide])
 
   return (
     <div className='slider'>
@@ -34,9 +51,9 @@ const Slider = () => {
               <img src={slide.image} alt={slide.heading} />
               <div className="content">
                 <h1>{slide.heading}</h1>
-                <p>{slide.desc}</p>
                 <hr />
-                <button className="--btn --btn-primary">Get Started</button>
+                <p>{slide.desc}</p>
+                
               </div>
               </>
             )}
