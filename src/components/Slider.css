@@ -16,7 +16,90 @@
   transition: all .5s ease;
 }
 
+@media screen and (min-width: 600px) {
+  .slide img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content {
+   position: absolute;
+   top: 15rem;
+   left: 10rem;
+   /* opacity: 0; */
+   width: 30%;
+   padding: 3rem;
+   background: rgba(53, 52, 52, 0.4);
+   animation: slide-up 1s ease .5s;
+   animation-fill-mode: forwards;
+   /* visibility: hidden; */
+
+}
+
+@keyframes slide-up {
+  0%{
+    visibility: visible;
+    top: 23rem;
+  }
+  100%{
+    visibility: visible;
+    top: 15rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    width: 50%;
+  }
+}
+
+.content > * {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.content p{
+  font-size: 1.5rem;
+}
+
 .current {
   opacity: 1;
   transform: translateX(0);
+}
+
+.current .content {
+  opacity: 1;
+}
+
+.arrow {
+  border: 2px solid white;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  top: 35%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  position: absolute;
+  z-index: 999;
+}
+
+.arrow:hover{
+  background: #fff;
+  color: #777;
+}
+
+.next{
+  right: 1.5rem;
+}
+
+.prev{
+  left: 1.5rem;
+}
+
+hr{
+  height: 2px;
+  background: #fff;
+  width: 100%;
 }
